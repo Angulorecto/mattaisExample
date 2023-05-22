@@ -2,15 +2,10 @@
   <title>Matthew Test</title>
   <body style="background-color:red;">
     <div class="video-wrapper">
-      <video id="liquid" playsinline autoplay muted loop>
-        <source src="liquid.webm" type="video/webm">
+      <video id="vidback" playsinline autoplay muted loop>
+        <source id="vidsrc" src="liquid.webm" type="video/webm">
       </video>
-      <div class='videobutton'>Change the background</div>
-    </div>
-    <div class="video-wrapper">
-      <video style="visibility:hidden;" id="liquid2" playsinline autoplay muted loop>
-        <source src="liquid2.mp4" type="video/mp4">
-      </video>
+      <button onclick="change()">Change the background</button>
     </div>
     <style>
       #liquid {
@@ -51,17 +46,17 @@
          justify-content: center;
       }
     </style>
-    <button style="z-index:3;" onclick="change()">Change the background</button>
     <script>
       function change() {
-        var vid1 = document.getElementById('liquid');
-        var vid2 = document.getElementById('liquid2');
-        if vid1.visibility == 'hidden' {
-          vid1.visibility = 'visible';
-          vid2.visibility = 'hidden';
+        var video = document.getElementById('vidback');
+        var src = document.getElementById('vidsrc');
+        video.pause();
+        if src.getAttribute('src') == 'liquid.webm' {
+          src.setAttribute('src', 'liquid2.mp4')
+          src.setAttribute('type', 'video/mp4')
         } else {
-          vid1.visibility = 'hidden';
-          vid2.visibility = 'visible';
+          src.setAttribute('src', 'liquid.webm')
+          src.setAttribute('type', 'video/webm')
         }
       }
     </script>

@@ -1,22 +1,14 @@
 <html>
   <title>Matthew Test</title>
   <body style="background-color:red;">
-    <div class="video-wrapper">
+    <div id="container" class="video-wrapper">
       <video id="vidback" playsinline autoplay muted loop>
-        <source id="vidsrc" src="liquid.webm" type="video/webm">
+        <source id="vidsrc" src="liquid.mp4" type="video/mp4">
       </video>
-      <button onclick="change()">Change the background</button>
+      <div onclick='change()' id="changeVideo">Change the background</div>
     </div>
     <style>
       #liquid {
-        position:absolute;
-        top:0;
-        left:0;
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-      }
-      #liquid2 {
         position:absolute;
         top:0;
         left:0;
@@ -48,18 +40,19 @@
     </style>
     <script>
       function change() {
-        var video = document.getElementById('vidback');
-        var src = document.getElementById('vidsrc');
-        video.pause();
-        if src.getAttribute('src') == 'liquid.webm' {
-          src.setAttribute('src', 'liquid2.mp4');
-          src.setAttribute('type', 'video/mp4');
-        } else {
-          src.setAttribute('src', 'liquid.webm');
-          src.setAttribute('type', 'video/webm');
-        }
-        video.load();
-        video.play();
+        const video = document.querySelector('video')
+        const source = document.querySelector('source')
+        
+        video.appendChild(source)
+        video.play()
+        
+        const changeVideoButton = document.querySelector('#changeVideo')
+        video.pause()
+         
+        source.setAttribute('src', 'liquid.mp4')
+        
+        video.load()
+        video.play()
       }
     </script>
   </body>

@@ -52,11 +52,11 @@
         var src = document.getElementById('vidsrc');
         video.pause();
         if src.getAttribute('src') == 'liquid.webm' {
-          src.setAttribute('src', 'liquid2.mp4')
-          src.setAttribute('type', 'video/mp4')
+          src.setAttribute('src', 'liquid2.mp4');
+          src.setAttribute('type', 'video/mp4');
         } else {
-          src.setAttribute('src', 'liquid.webm')
-          src.setAttribute('type', 'video/webm')
+          src.setAttribute('src', 'liquid.webm');
+          src.setAttribute('type', 'video/webm');
         }
         video.load();
         video.play();

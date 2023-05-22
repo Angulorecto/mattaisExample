@@ -2,10 +2,9 @@
   <title>Matthew Test</title>
   <body style="background-color:red;">
     <div id="container" class="video-wrapper">
-      <video id="vidback" playsinline autoplay muted loop>
+      <video id="liquid" playsinline autoplay muted loop>
         <source id="vidsrc" src="liquid.mp4" type="video/mp4">
       </video>
-      <div onclick='change()' id="changeVideo">Change the background</div>
     </div>
     <style>
       #liquid {
@@ -37,42 +36,6 @@
          align-items: center;
          justify-content: center;
       }
-      #changeVideo {
-         position: absolute;
-         top: 10px;
-         left: 10px;
-         width: 25px;
-         height: 25px;
-         opacity: 0;
-         transition: opacity .3s ease;
-         cursor: pointer;
-  
-         /* Additional styles just to increase visual appeal */
-         border-radius: 50%;
-         background: #FFFFFFDD;
-         color: red;
-         font-weight: bold;
-         line-height: 25px;
-         text-align: center;
-         /* End */
-       }
     </style>
-    <script>
-      function change() {
-        const video = document.querySelector('video')
-        const source = document.querySelector('source')
-        
-        video.appendChild(source)
-        video.play()
-        
-        const changeVideoButton = document.querySelector('#changeVideo')
-        video.pause()
-         
-        source.setAttribute('src', 'liquid2.mp4')
-        
-        video.load()
-        video.play()
-      }
-    </script>
   </body>
 </html>
